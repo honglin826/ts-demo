@@ -78,6 +78,22 @@ namespace c {
   console.log(cal(2, 4))
 }
 
+/**
+ * 泛型接口
+ */
+
+interface Cart<T> {
+  lists: T[]
+}
+interface Product {
+  id: number
+  name: string
+}
+
+let cart: Cart<Product> = {
+  lists: [{id: 1, name: 'linlin'}]
+}
+
 // 多个类型参数
 function swap<A, B> (tuple: [A, B]): [B, A] {
   return [tuple[1], tuple[0]]
@@ -96,6 +112,8 @@ function logger<T extends LengthWise> (val: T) {
   return val.length
 }
 
+
+
 // console.log(logger([23,3,5]))
 // 相当于
 class Length implements LengthWise {
@@ -105,30 +123,17 @@ let len = new Length()
 logger(len)
 
 /**
- * 泛型接口
- */
-
-interface Cart<T> {
-  lists: T[]
-}
-interface Product {
-  id: number
-  name: string
-}
-
-let cart: Cart<Product> = {
-  lists: [{id: 1, name: 'linlin'}]
-}
-
-/**
  * type 泛型类型的别名
- * type与interface 的区别
- * 1、interface 才是真正的类型，会创建一个类型的名称，可以在任何一个地方调用
- * type 并没有创建一个新的名称，比如报错的时候不能用
- * 2、type不能被extends implements, 如果要继承或者实现，必须使用interface
- * 3、当使用联合类型可以使用别名
  */
 
 type Cart1<T> = {lists: T[]} | T[]
 let cart1: Cart1<number> = {lists: [0]}
 let cart2: Cart1<number> = [9]
+
+type PartialPointX = { x: number; };
+type Point = PartialPointX & { y: number; };
+
+let t: Point = {
+  x: 1,
+  y: 3
+} 

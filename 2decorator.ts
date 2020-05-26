@@ -135,3 +135,30 @@ class C {
   @g
   method() {}
 }
+
+console.log('--------- 装饰器工厂 ----------')
+namespace p {
+  interface Student {
+    name: string,
+    doSomething: any
+  }
+  /**
+   * 装饰器工厂
+   */
+  function enhancer(value: string) {
+    return function (target: any) {
+      target.prototype.name = value
+      target.prototype.doSomething = function () {
+        console.log('doSomething')
+      }
+    }
+  }
+  // 类装饰器
+  @enhancer('自定义名字')
+  class Student {
+    constructor() {}
+  }
+  
+  let stu: Student = new Student()
+  console.log(stu.name)
+}

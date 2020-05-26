@@ -16,6 +16,7 @@ var abc;
             console.log('Person');
         };
         Person.prototype.speakChinese = function (language) {
+            if (language === void 0) { language = 'asd'; }
             console.log(language);
         };
         // 可以继续拓展自己的属性方法
@@ -52,13 +53,13 @@ var det = function (price) {
 };
 var arr = ['1', '3', '3'];
 /**
- * 类索引: 对接口进行约束
+ * 类接口: 对类进行约束
  * 1、约束类的实例
  * 2、约束类的构造函数
  */
 // 约束类的实例
-var g;
-(function (g) {
+var g1;
+(function (g1) {
     var Dog = /** @class */ (function () {
         function Dog() {
         }
@@ -67,7 +68,7 @@ var g;
         };
         return Dog;
     }());
-})(g || (g = {}));
+})(g1 || (g1 = {}));
 // 约束类的构造函数
 var h;
 (function (h) {

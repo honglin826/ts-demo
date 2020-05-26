@@ -1,4 +1,6 @@
-# readme
+# ts 相关的demo文件
+
+对应的[ts文档地址](http://fe.lezhixing.com.cn/te/)
 
 #### 生成tsconfig.json
 ```sh
@@ -11,24 +13,3 @@ sudo npm i typescript -g
 sudo npm i ts-node -g
 ```
 
-### interface
-
-任意属性
-```ts
-// 第一种写法
-interface Props {
-  name: string,
-  age: number,
-  [propName: string]: any // 任意属性
-}
-// 第二种写法
-interface Props extends Record<string, any> {
-  name: string,
-  age: number
-}
-let props: Props = {
-  name: 'lin',
-  age: 12,
-  home: 'sd'
-}
-```

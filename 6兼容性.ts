@@ -19,13 +19,24 @@ namespace a {
   function getName(animal: Animal): string {
     return animal.name;
   }
+  function getPName(person: Person): string {
+    return person.name;
+  }
   let p: Person = {
     name: 'zhangsan',
     age: 10,
     gender: 0
   }
 
+  let a: Animal = {
+    name: 'cat',
+    age: 0
+  }
+
   getName(p);
+
+  getPName(a) // 属性少了直接报错
+
   //只有在传参的时候两个变量之间才会进行兼容性的比较，赋值的时候并不会比较,会直接报错
   let a: Animal = {
     name: 'zhangsan',
@@ -49,6 +60,7 @@ namespace b {
   }
   let a:Animal
   a = new Bird()
+  
   let b:Bird
   b = new Animal() // 报错
 

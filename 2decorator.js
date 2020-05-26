@@ -160,3 +160,29 @@ var C = /** @class */ (function () {
     ], C.prototype, "method", null);
     return C;
 }());
+console.log('--------- 装饰器工厂 ----------');
+var p;
+(function (p) {
+    /**
+     * 装饰器工厂
+     */
+    function enhancer(value) {
+        return function (target) {
+            target.prototype.name = value;
+            target.prototype.doSomething = function () {
+                console.log('doSomething');
+            };
+        };
+    }
+    // 类装饰器
+    var Student = /** @class */ (function () {
+        function Student() {
+        }
+        Student = __decorate([
+            enhancer('自定义名字')
+        ], Student);
+        return Student;
+    }());
+    var stu = new Student();
+    console.log(stu.name);
+})(p || (p = {}));

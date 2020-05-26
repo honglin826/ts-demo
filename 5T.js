@@ -9,8 +9,8 @@ function createArray(length, value) {
     }
     return result;
 }
-var f;
-(function (f) {
+var fas;
+(function (fas) {
     // 默认泛型number
     function createArray(length, value) {
         var result = [];
@@ -20,7 +20,7 @@ var f;
         return result;
     }
     // console.log(createArray<number>(3, 10))
-})(f || (f = {}));
+})(fas || (fas = {}));
 /**
  * 类数组
  */
